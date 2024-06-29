@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dodatna obvestila</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #282c34;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #notification-container {
+            background-color: #3b3f4c;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 80%;
+            max-width: 600px;
+            padding: 20px;
+            text-align: center;
+        }
+        .notification {
+            background-color: #444b58;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 4px;
+        }
+        #back-button {
+            background-color: #61dafb;
+            color: #282c34;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        #back-button:hover {
+            background-color: #21a1f1;
+        }
+    </style>
+</head>
+<body>
+    <div id="notification-container">
+        <h1>OBVESTILA</h1>
+        <div id="notifications"></div>
+        <button id="back-button" onclick="window.location.href='index.html'">Nazaj na glavna obvestila</button>
+    </div>
+
+    <script>
+        const notifications = [
+            "Naša strežnikova verzija je bila posodobljena na 1.17.",
+            "Nov svet je bil dodan za raziskovanje.",
+            "Imamo novo pravilo: Ne griefajte drugih igralcev."
+        ];
+
+        function displayNotifications() {
+            const notificationsContainer = document.getElementById('notifications');
+            notifications.forEach(notification => {
+                const notificationElement = document.createElement('div');
+                notificationElement.className = 'notification';
+                notificationElement.innerText = notification;
+                notificationsContainer.appendChild(notificationElement);
+            });
+        }
+
+        window.onload = displayNotifications;
+    </script>
+</body>
+</html>
